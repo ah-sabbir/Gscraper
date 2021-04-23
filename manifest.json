@@ -5,25 +5,28 @@
   "description":"Scrape search result from google",
   "background":{
       "scripts":[
-          "scripts/modernizr-custom.js"
+          "./scripts/background/background.js"
           ],
-      "persistent": false
+      "persistent": true
   },
   "content_scripts": [
     {
       "matches": ["https://www.google.com/*", "http://*/*"],
-      "js": ["content.js","background.js"],
+      "js": ["./scripts/dom/content.js"],
       "run_at": "document_end"
     }
   ],
+  "browser_action":{
+    "default_popup":"popup.html"
+  },
   "permissions":[
       "contextMenus", 
-      "tabs",
+      "activeTab",
       "http://*/*",
       "https://*/*"
       ],
   "icons":{
-      "16":"hello-16.png",
-      "128":"hello-16.png"
+      "16":"./icons/hello-16.png",
+      "128":"./icons/hello-16.png"
   }
 }
