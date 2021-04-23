@@ -1,0 +1,29 @@
+{
+  "name":"Gscraper",
+  "version":"0.1",
+  "manifest_version":2,
+  "description":"Scrape search result from google",
+  "background":{
+      "scripts":[
+          "scripts/modernizr-custom.js"
+          ],
+      "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/*", "http://*/*"],
+      "js": ["content.js","background.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions":[
+      "contextMenus", 
+      "tabs",
+      "http://*/*",
+      "https://*/*"
+      ],
+  "icons":{
+      "16":"hello-16.png",
+      "128":"hello-16.png"
+  }
+}
